@@ -27,7 +27,8 @@ object DiceDSL {
   def expressionSeparator[_: P]: P[String] = P(" ").rep ~ CharIn("+\\-").! ~ P(" ").rep
   def constExpression[_: P] = number.map(Const.apply)
   def diceOrConst[_: P]: P[DiceExpression] = (keepExplodeDice | explodeDice | keepDice | dice | constExpression) ~ &(diceEnd)
-  def diceExpression[_: P]: P[DiceExpression] = P ( diceOrConst ~ (expressionSeparator ~ diceOrConst).rep(0) ~ End ).map { case (start, parts) =>DiceExpression.build(start, parts) }
 
-
+  def diceExpression[_: P]: P[DiceExpression] = P ( diceOrConst ~ (expressionSeparator ~ diceOrConst).rep(0) ~ End )
+    .opaque("Invalid dice expression")
+    .map { case (start, parts) =>DiceExpression.build(start, parts) }
 }

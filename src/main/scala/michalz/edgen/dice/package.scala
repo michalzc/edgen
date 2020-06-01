@@ -84,8 +84,8 @@ package object dice {
   }
 
   object Dice {
-    def num(n: Int, multipler: Int): Dice                             = BasicDice(1, n, multipler)
-    def range(from: Int, to: Int, multipler: Int): Dice               = BasicDice(from, to, multipler)
+    def num(n: Int, multipler: Int = 1): Dice                             = BasicDice(1, n, multipler)
+    def range(from: Int, to: Int, multipler: Int = 1): Dice               = BasicDice(from, to, multipler)
     def keepDice(source: Dice, keep: Int): Dice                       = KeepDice(source.from, source.to, source.multipler, keep)
     def keepDice(from: Int, to: Int, multipler: Int, keep: Int): Dice = KeepDice(from, to, multipler, keep)
     def explodeDice(source: Dice): Dice                               = ExplodeDice(source.from, source.to, source.multipler)

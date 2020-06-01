@@ -1,0 +1,48 @@
+
+races:
+  dice: 3d6
+  values:
+    '3': obsidian
+    '4-5': troll
+    '6-7': orc
+    '8-12': human
+    '13-14': dwarf
+    '15': tskrang
+    '16-17': elf
+    '18': windling
+
+sex-settlement:
+  dice: d2
+  values:
+    '1': m
+    '2': f
+
+sex-wilderness:
+  dice: d3
+  values:
+    '1-2': m
+    '3': f
+
+age-settlement:
+  dice: d6
+  values:
+    '1': child
+    '2': young
+    '3-5': adult
+    '6': old
+
+age-wilderness:
+  dice: d6
+  values:
+    '1': young
+    '2-5': adult
+    '6': old
+
+npc-settlement:
+  race:
+    generator: races
+  sex:
+    generator: sex-settlement
+  age:
+    generator: age-settlement
+
