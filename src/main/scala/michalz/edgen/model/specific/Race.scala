@@ -12,7 +12,7 @@ object Race {
   case object Elf extends Race
   case object Windling extends Race
 
-  def all: Seq[Race] = Seq(
+  def all: Seq[Race] = List(
     Obsidian,
     Troll,
     Orc,
