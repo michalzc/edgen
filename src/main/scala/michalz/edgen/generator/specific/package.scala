@@ -14,7 +14,7 @@ package object specific {
       (6 to 7) -> Race.Orc,
       (8 to 12) -> Race.Human,
       (13 to 14) -> Race.Dwarf,
-      List(15) -> Race.TSkrang,
+      List(15) -> Race.Tskrang,
       (16 to 17) -> Race.Elf,
       (List(18)) -> Race.Windling
     ).flatMap { case (rng, race) => rng.toList.map(_ -> race) }

@@ -1,17 +1,13 @@
 package michalz.edgen.generator.generic
 
-import michalz.edgen.dice.DiceExpression
+import michalz.edgen.generator.generic.GenericGenerator.ParserType
 
-import scala.util.Random
+class GenericGenerator[T](
+  parser: ParserType[T]
+) {
 
-sealed trait GenericGenerator[O] {
-  def run()(implicit rnd: Random): O
 }
 
-sealed trait DiceGenerator[O] extends GenericGenerator[O] {
-  def diceExpression: DiceExpression
-}
-
-case class DiceValueGenerator(diceExpression: DiceExpression) extends DiceGenerator[Int] {
-  override def run()(implicit rnd: Random): Int = diceExpression.eval()._2
+object GenericGenerator {
+  type ParserType[T] = String => Either[String, T]
 }
